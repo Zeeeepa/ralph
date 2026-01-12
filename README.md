@@ -21,7 +21,7 @@ Install and run Ralph from anywhere:
 
 ```bash
 npm i -g @iannuttall/ralph
-ralph prd "Describe the feature/app you want"
+ralph prd # launches an interactive prompt
 ralph plan
 ralph build 1 # one Ralph run
 ```
@@ -56,9 +56,14 @@ If you skipped skills during `ralph install`, you can run `ralph install --skill
 
 1) Write your PRD (default path) or generate one:
 ```
-ralph prd "A lightweight uptime monitor (Hono app), deployed on Cloudflare, with email alerts via AWS SES"
+ralph prd
 ```
 Requires the **prd** skill (install via `ralph install --skills`).
+
+Example prompt text:
+```
+A lightweight uptime monitor (Hono app), deployed on Cloudflare, with email alerts via AWS SES
+```
 
 Default output:
 ```
@@ -82,7 +87,7 @@ ralph build 1 --no-commit # one Ralph run
 
 Override PRD output for `ralph prd`:
 ```
-ralph prd "..." --out docs/prd-api.md
+ralph prd --out docs/prd-api.md
 ```
 
 ### Why a PRD and a plan?
@@ -124,7 +129,7 @@ AGENT_CMD="droid exec --skip-permissions-unsafe -f {prompt}"
 Or override per run:
 
 ```
-ralph prd "..." --agent=codex
+ralph prd --agent=codex
 ralph build 1 --agent=codex # one Ralph run
 ralph build 1 --agent=claude # one Ralph run
 ralph build 1 --agent=droid # one Ralph run
